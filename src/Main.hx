@@ -1,25 +1,27 @@
-import macros.BuildInfoMacro;
-import utils.CompileTimeUtils;
+import utils.CompileUtils;
 
 class Main {
-    public static var operatingSystem:String;
-
     static public function main() {
-        BuildInfoMacro.apply();
-
         trace("Hello, world!");
 
-        var buildDate:Date = CompileTime.buildDate();
+        var buildDate:Date = CompileUtils.buildDate();
         trace("Build date: " + buildDate);
 
-        var commitHash:String = CompileTimeUtils.buildGitCommitShaClean();
+        var commitMessage:String = CompileUtils.buildGitCommitMessage();
+        trace("Commit message: " + commitMessage);
+
+        var commitHash:String = CompileUtils.buildGitCommitShaClean();
         trace("Commit hash: " + commitHash);
+
+        var systemName:String = CompileUtils.getSystemName();
+        trace("System name: " + systemName);
 
         Reflect.setField(js.Browser.window, "git", {
             buildDate: buildDate,
-            commitHash: commitHash
+            commitHash: commitHash,
+            commitMessage: commitMessage,
+            systemName: systemName
         });
 
-        trace("Build Operating system: " + operatingSystem);
     }
 }
