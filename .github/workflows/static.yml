@@ -31,6 +31,10 @@ jobs:
     steps:
       - name: Setup Haxe environment
         uses: krdlab/setup-haxe@v1.5.1
+                - run: |
+                haxe -version
+                #haxelib install hxnodejs
+                haxe build.hxml
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
