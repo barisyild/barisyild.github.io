@@ -1,6 +1,12 @@
+import macros.BuildInfoMacro;
 import utils.CompileTimeUtils;
+
 class Main {
+    public static var operatingSystem:String;
+
     static public function main() {
+        BuildInfoMacro.apply();
+
         trace("Hello, world!");
 
         var buildDate:Date = CompileTime.buildDate();
@@ -13,5 +19,7 @@ class Main {
             buildDate: buildDate,
             commitHash: commitHash
         });
+
+        trace("Build Operating system: " + operatingSystem);
     }
 }
