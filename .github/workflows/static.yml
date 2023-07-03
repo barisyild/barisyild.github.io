@@ -31,9 +31,7 @@ jobs:
     steps:
       - name: Setup Haxe environment
         uses: krdlab/setup-haxe@v1.5.1
-                - run: |
-                haxe -version
-                #haxelib install hxnodejs
+      - run: |
                 haxe build.hxml
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,7 +41,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: '.'
+          path: 'Export'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
