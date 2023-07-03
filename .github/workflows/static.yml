@@ -29,12 +29,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Setup Haxe environment
         uses: krdlab/setup-haxe@v1.5.1
       - run: |
-                haxe $GITHUB_WORKSPACE/../build.hxml
-      - name: Checkout
-        uses: actions/checkout@v3
+          haxe ${{ github.workspace }}/build.hxml
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
