@@ -2,4 +2,5 @@
 -D analyzer-optimize
 -D js-es=6
 -main Main
---js Export/js/app.js
+--macro macro.DeployTemplateMacro.apply()
+--js deploy/js/app.js
