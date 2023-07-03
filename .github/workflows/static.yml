@@ -32,7 +32,7 @@ jobs:
       - name: Setup Haxe environment
         uses: krdlab/setup-haxe@v1.5.1
       - run: |
-                haxe $GITHUB_WORKSPACE/build.hxml
+                haxe $GITHUB_WORKSPACE/../build.hxml
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
