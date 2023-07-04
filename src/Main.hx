@@ -1,17 +1,23 @@
+import haxe.ui.Toolkit;
+import haxe.ui.components.CheckBox;
 import utils.CompileUtils;
 
+import haxe.ui.HaxeUIApp;
+
 class Main {
+
     static public function main() {
+
         trace("Hello, world!");
 
         var buildDate:Date = CompileUtils.buildDate();
         trace("Build date: " + buildDate);
 
-        var commitMessage:String = CompileUtils.buildGitCommitMessage();
-        trace("Commit message: " + commitMessage);
-
         var commitHash:String = CompileUtils.buildGitCommitShaClean();
         trace("Commit hash: " + commitHash);
+
+        var commitMessage:String = CompileUtils.buildGitCommitMessage();
+        trace("Commit message: " + commitMessage);
 
         var systemName:String = CompileUtils.getSystemName();
         trace("System name: " + systemName);
@@ -23,5 +29,13 @@ class Main {
             systemName: systemName
         });
 
+        Toolkit.init();
+
+        var app = new HaxeUIApp();
+        app.ready(function() {
+            app.addComponent(new CheckBox());
+
+            app.start();
+        });
     }
 }

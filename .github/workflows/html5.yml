@@ -34,7 +34,8 @@ jobs:
       - name: Setup Haxe environment
         uses: krdlab/setup-haxe@v1.5.1
       - run: |
-          haxelib install compiletime
+          haxelib install haxeui-core
+          haxelib install haxeui-html5
           haxe ${{ github.workspace }}/build.hxml
       - name: Setup Pages
         uses: actions/configure-pages@v3
