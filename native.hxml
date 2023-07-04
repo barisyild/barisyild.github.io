@@ -1,0 +1,8 @@
+-cp src
+-D analyzer-optimize
+-lib hxWidgets
+-lib haxeui-core
+-lib haxeui-hxwidgets
+-main Main
+--macro macros.DeployTemplateMacro.apply()
+--cpp deploy/native

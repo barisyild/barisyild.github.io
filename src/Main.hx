@@ -1,3 +1,4 @@
+import haxe.ui.containers.Frame;
 import haxe.ui.Toolkit;
 import haxe.ui.components.CheckBox;
 import utils.CompileUtils;
@@ -22,12 +23,14 @@ class Main {
         var systemName:String = CompileUtils.getSystemName();
         trace("System name: " + systemName);
 
+        #if js
         Reflect.setField(js.Browser.window, "git", {
             buildDate: buildDate,
             commitHash: commitHash,
             commitMessage: commitMessage,
             systemName: systemName
         });
+        #end
 
         Toolkit.init();
 

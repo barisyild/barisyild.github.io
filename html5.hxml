@@ -1,13 +1,8 @@
 -cp src
 -D analyzer-optimize
 -D js-es=6
--main Main
 -lib haxeui-core
 -lib haxeui-html5
+-main Main
 --macro macros.DeployTemplateMacro.apply()
 --js deploy/js/app.js
-
---next
--lib haxeui-hxwidgets
--lib hxWidgets
---cpp deploy/cpp
