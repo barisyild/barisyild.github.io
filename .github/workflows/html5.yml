@@ -36,6 +36,8 @@ jobs:
       - run: |
           haxelib install haxeui-core
           haxelib install haxeui-html5
+          haxelib install haxeui-hxwidgets
+          haxelib install hxWidgets
           haxe ${{ github.workspace }}/build.hxml
       - name: Setup Pages
         uses: actions/configure-pages@v3
